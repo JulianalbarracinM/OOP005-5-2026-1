@@ -10,7 +10,7 @@ public class Arrays1
     public Arrays1(int n) 
     {
         this.n = n;
-        this.data = new int[n];   // arreglo
+        this.data = new int[n];
     }
 
     public void getvector(String name) 
