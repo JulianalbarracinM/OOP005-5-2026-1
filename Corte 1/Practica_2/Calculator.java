@@ -1,49 +1,44 @@
-package calculator_example;
+package calculadora;
 
-/**
- *
- * @author Julian JAM
- * 
- * Atributos = variables
- * Metodos = funciones
- * Objetos = 
- */
-public class Calculator {
+
+public class Calculadora {
     public int x1, x2;
     
-//Constructor (debe tener el mismo nombre que la clase)
-    public Calculator(int a, int b){
+    public Calculadora(int a, int b){
         x1 = a;
         x2 = b;
     }
     
     public int add(){
-        return x1 + x2;
-    }
+        return x1+x2;
+     }
     
     public int subs(){
-        return x1 - x2;
-    }
+        return x1-x2;
+     }
     
     public int mult(){
-        return x1 * x2;
+        return x1*x2;
     }
-    
-    public int div(){
-        if (x2==0){
-            System.out.println("No se puede dividir por 0");
-        }
-        return x1 / x2;
-        
-    }
+
+    public float div(){
+        return x1/x2;
+     }
     
     public static void main(String[] args) {
-        Calculator m = new Calculator(34, 0);
-        System.out.println("La suma con el objeto m es:" + m.add());
-        System.out.println("La resta con el objeto m es:" +m.subs());
-        System.out.println(m.mult());
-        System.out.println(m.div());
-       
+        // TODO code application logic here
+        Calculadora m = new Calculadora(34,43);
+        Calculadora n = new Calculadora(10,2);
+        
+        System.out.println("La suma de objeto m es"+m.add());
+        System.out.println("La resta de objeto m es"+m.subs());
+        System.out.println("La mult de objeto m es"+m.mult());
+        System.out.println("La div de objeto m es"+m.div());
+        
+        System.out.println("La suma de objeto n es"+n.add());
+        System.out.println("La resta de objeto n es"+n.subs());
+        System.out.println("La mult de objeto n es"+n.mult());
+        System.out.println("La div de objeto n es"+n.div());
     }
     
 }
