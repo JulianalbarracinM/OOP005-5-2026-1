@@ -20,13 +20,22 @@ public class Bank {
   public static void main(String[] args) {
     Bank bankOfGods = new Bank();
 
-    System.out.println("Balance inicial: " + bankOfGods.accountOne.getBalance());
+    System.out.println("Saldo Inicial: " + bankOfGods.accountOne.getBalance());
 
-    bankOfGods.accountOne.setBalance(5000);
+    bankOfGods.accountOne.setBalance(5100);
 
-    System.out.println("Nuevo balance: " + bankOfGods.accountOne.getBalance());
+    System.out.println("Nuevo Saldo: " + bankOfGods.accountOne.getBalance());
 
     System.out.println("Nombre: " + bankOfGods.accountOne.getName());
     System.out.println("ID: " + bankOfGods.accountOne.getId());
+    
+    System.out.println("Saldo Inicial: " + bankOfGods.accountTwo.getBalance());
+
+    bankOfGods.accountTwo.setBalance(5200);
+
+    System.out.println("Nuevo Saldo: " + bankOfGods.accountTwo.getBalance());
+
+    System.out.println("Nombre: " + bankOfGods.accountTwo.getName());
+    System.out.println("ID: " + bankOfGods.accountTwo.getId());
   }
 }
