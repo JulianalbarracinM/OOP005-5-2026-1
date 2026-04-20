@@ -1,44 +1,64 @@
-package com.mycompany.matriz3x3;
+package Matriz3x3;
 
-import java.util.Scanner;
+public class Matriz3x3 {
 
-public class MainMatriz3x3 {
+    private int[][] data;
+    private int filas;
+    private int columnas;
 
-    public static void main(String[] args) {
+    public Matriz3x3() {
+        this.filas = 3;
+        this.columnas = 3;
+        this.data = new int[filas][columnas];
+    }
 
-        Scanner sc = new Scanner(System.in);
+    public void setValor(int fila, int columna, int valor) {
+        data[fila][columna] = valor;
+    }
 
-        Matriz3x3 A = new Matriz3x3();
-        Matriz3x3 B = new Matriz3x3();
+    public int getValor(int fila, int columna) {
+        return data[fila][columna];
+    }
 
-        System.out.println("Ingrese datos de la matriz A:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print("A[" + i + "][" + j + "]: ");
-                A.setValor(i, j, sc.nextInt());
+    public Matriz3x3 sumar(Matriz3x3 otra) {
+        Matriz3x3 resultado = new Matriz3x3();
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                int suma = this.getValor(i, j) + otra.getValor(i, j);
+                resultado.setValor(i, j, suma);
             }
         }
 
-        System.out.println("\nIngrese datos de la matriz B:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print("B[" + i + "][" + j + "]: ");
-                B.setValor(i, j, sc.nextInt());
+        return resultado;
+    }
+
+    public Matriz3x3 multiplicar(Matriz3x3 otra) {
+        Matriz3x3 resultado = new Matriz3x3();
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+
+                int valor = 0;
+
+                for (int k = 0; k < columnas; k++) {
+                    valor += this.getValor(i, k) * otra.getValor(k, j);
+                }
+
+                resultado.setValor(i, j, valor);
             }
         }
 
-        System.out.println("\nMatriz A:");
-        A.imprimir();
+        return resultado;
+    }
 
-        System.out.println("\nMatriz B:");
-        B.imprimir();
-
-        Matriz3x3 suma = A.sumar(B);
-        System.out.println("\nSuma A + B:");
-        suma.imprimir();
-
-        Matriz3x3 mult = A.multiplicar(B);
-        System.out.println("\nMultiplicación A * B:");
-        mult.imprimir();
+    public void imprimir() {
+        System.out.println("Matriz 3x3:");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                System.out.print(getValor(i, j) + " ");
+            }
+            System.out.println();
+        }
     }
 }
